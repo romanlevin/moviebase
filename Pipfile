@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+django-filter = "*"
+django-crispy-forms = "*"
+omdb = "*"
+
+[dev-packages]
+django-dotenv = "*"
+pytest-django = "*"
+black = "*"
+"flake8" = "*"
+mypy = "*"
+factory-boy = "*"
+pytest-factoryboy = "*"
+
+[requires]
+python_version = "3.7"

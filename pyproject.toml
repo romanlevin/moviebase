@@ -1,0 +1,9 @@
+[tool.black]
+py36 = true
+skip-string-normalization = true
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+)/
+'''
