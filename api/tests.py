@@ -74,7 +74,9 @@ def test_create_movie_invalid_title(api_client, omdb, db, movie_factory):
     omdb.get.return_value = {}
     response = api_client.post('/movies/', {'title': title}, format='json')
     assert response.status_code == 400
-    assert response.json()['title'] == [f'{movie_to_create.title!r} does not appear to be a movie title']
+    assert response.json()['title'] == [
+        f'{movie_to_create.title!r} does not appear to be a movie title'
+    ]
 
 
 def test_list_comments(api_client, db, comment_factory):
@@ -89,7 +91,9 @@ def test_list_comments(api_client, db, comment_factory):
 
 def test_create_comment(api_client, db, movie_factory):
     movie = movie_factory()
-    response = api_client.post('/comments/', {'body': 'foo', 'movie': movie.pk}, format='json')
+    response = api_client.post(
+        '/comments/', {'body': 'foo', 'movie': movie.pk}, format='json'
+    )
     comment = response.json()
 
     assert comment['body'] == 'foo'
@@ -106,7 +110,9 @@ def test_filter_comments(api_client, db, comment_factory):
     random_comments = comment_factory.create_batch(5)
     first_comment = random_comments[0]
     movie = first_comment.movie
-    first_movie_comments = [first_comment] + comment_factory.create_batch(5, movie=movie)
+    first_movie_comments = [first_comment] + comment_factory.create_batch(
+        5, movie=movie
+    )
 
     response = api_client.get('/comments/')
     assert len(response.json()) == 10
@@ -117,4 +123,6 @@ def test_filter_comments(api_client, db, comment_factory):
     # Check that all comments are associated with the first movie
     assert all(comment['movie'] == movie.pk for comment in response.json())
     # Check that all comment contents are correct
-    assert set(comment.body for comment in first_movie_comments) == set(comment['body'] for comment in response.json())
+    assert set(comment.body for comment in first_movie_comments) == set(
+        comment['body'] for comment in response.json()
+    )

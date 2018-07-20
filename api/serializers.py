@@ -20,7 +20,13 @@ class MovieSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         omdb_movie = self._fetch_from_omdb(validated_data['title'])
         if not omdb_movie:
-            raise serializers.ValidationError({'title': [f'{validated_data["title"]!r} does not appear to be a movie title']})
+            raise serializers.ValidationError(
+                {
+                    'title': [
+                        f'{validated_data["title"]!r} does not appear to be a movie title'
+                    ]
+                }
+            )
         return Movie.objects.create(**validated_data, year=omdb_movie['year'])
 
 
