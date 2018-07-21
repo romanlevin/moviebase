@@ -9,7 +9,7 @@ class Common(Configuration):
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = values.SecretValue()
 
-    DEBUG = values.BooleanValue(True)
+    DEBUG = values.BooleanValue(False)
 
     ALLOWED_HOSTS = []
 
@@ -124,3 +124,4 @@ class Production(Common):
     SECURE_SSL_HOST = values.Value(None)
     SECURE_SSL_REDIRECT = values.BooleanValue(True)
     SECURE_PROXY_SSL_HEADER = values.TupleValue(('HTTP_X_FORWARDED_PROTO', 'https'))
+    ALLOWED_HOSTS = ['*']
