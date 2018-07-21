@@ -12,4 +12,6 @@ DJANGO_SECRET_KEY='XXXXXXX'
 
 You can obtain an OMDB API key [here](https://www.omdbapi.com/apikey.aspx).
 
+You can override the default SQLite database by setting the `DATABASE_URL` environment variable to a database URL of your choice.
+
 Run `$pipenv run pytest` to run tests.
