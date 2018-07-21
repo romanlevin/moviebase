@@ -4,8 +4,9 @@ import sys
 
 if __name__ == "__main__":
     configuration = os.getenv('ENVIRONMENT', 'development').title()
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "moviebase.settings")
-    os.environ.setdefault("DJANGO_CONFIGURATION", configuration)
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'moviebase.settings')
+    os.environ.setdefault('DJANGO_CONFIGURATION', configuration)
+
     try:
         from configurations.management import execute_from_command_line
     except ImportError as exc:

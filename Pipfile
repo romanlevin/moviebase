@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django = "==2.0.0"
 djangorestframework = "*"
 django-filter = "*"
 django-crispy-forms = "*"
@@ -13,6 +13,7 @@ gunicorn = "*"
 "psycopg2" = "*"
 newrelic = "*"
 django-configurations = "*"
+dj-database-url = "*"
 
 [dev-packages]
 pytest-django = "*"
