@@ -9,9 +9,12 @@ djangorestframework = "*"
 django-filter = "*"
 django-crispy-forms = "*"
 omdb = "*"
+gunicorn = "*"
+"psycopg2" = "*"
+newrelic = "*"
+django-configurations = "*"
 
 [dev-packages]
-django-dotenv = "*"
 pytest-django = "*"
 black = "*"
 "flake8" = "*"
@@ -21,3 +24,6 @@ pytest-factoryboy = "*"
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
